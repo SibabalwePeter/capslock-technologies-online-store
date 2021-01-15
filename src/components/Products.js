@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import PRODUCTS_QUERY from './product-list/index';
 import Product from './Product';
+import Cart from './Cart';
 import Navbar from './Navbar';
 
 class Products extends Component {
@@ -11,13 +12,22 @@ class Products extends Component {
         this.state = {
             cartitems: []
         };
+        this.addItem = this.addItem.bind(this);
     }
 
-    addItem = (item) => {
+    addItem(item) {
         this.setState({
             cartitems: this.state.cartitems.concat([item])
         });
-    } 
+    }
+
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
+    };
 
     render() {
         return (
@@ -28,9 +38,13 @@ class Products extends Component {
                     if (error) return <div>Error</div>
 
                     const items = data.productsList.items;
+                    const itemssent = this.state.cartitems;
+
                     return (
                         <div>
-                            <Navbar />
+                            <Navbar cart={itemssent} show={this.showModal}/>
+                            <Cart show={this.state.show} items={itemssent} handleClose={this.hideModal}>
+                            </Cart>
                             <div className="container mt-4">
                                 <div className="row">
                                     {items.map(item => <Product key={item.id} product={item} addItem={this.addItem} />)}
