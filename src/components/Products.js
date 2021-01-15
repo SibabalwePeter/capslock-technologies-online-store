@@ -17,7 +17,7 @@ class Products extends Component {
         this.setState({
             cartitems: this.state.cartitems.concat([item])
         });
-    }
+    } 
 
     render() {
         return (

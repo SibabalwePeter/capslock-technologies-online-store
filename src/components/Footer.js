@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-md-6 mt-md-0 mt-3">
                         <h5 className="text-uppercase font-weight-bold">Contact Us</h5>
-                        <p>You can contact us on 234-8111-111-11</p>
+                        <p>You can contact us on 063 569 3150</p>
                     </div>
                     <div className="col-md-6 mb-md-0 mb-3">
                         <h5 className="text-uppercase font-weight-bold">Return Policy</h5>
@@ -16,8 +16,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer-copyright text-center py-3">© 2019 Copyright:
-          <span> Shoppr</span>
+            <div className="footer-copyright text-center py-3">© 2021 Copyright: Designed by 
+            <a href="https://capslocktechnologies.netlify.app" target="blank"> CapsLock Technologies</a>
             </div>
         </footer>
     );
